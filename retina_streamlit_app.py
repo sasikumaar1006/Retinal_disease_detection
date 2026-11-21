@@ -20,7 +20,7 @@ candidate_paths = [
 ]
 
 WEIGHTS_PATH = next((p for p in candidate_paths if p.exists()), candidate_paths[0])
-st.caption(f"Weights loaded: {WEIGHTS_PATH.name}")
+
 IMAGENET_MEAN = [0.485, 0.456, 0.406]
 IMAGENET_STD = [0.229, 0.224, 0.225]
 

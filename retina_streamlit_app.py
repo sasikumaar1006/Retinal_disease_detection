@@ -11,7 +11,7 @@ from torchvision import models, transforms
 from gradcam import GradCAM, make_overlay
 
 CLASS_NAMES = ["CNV", "DME", "DRUSEN", "NORMAL"]
-WEIGHTS_PATH = Path(__file__).parent / "weights" / "resnet18_oct2017.pth"
+WEIGHTS_PATH = Path(__file__).resolve().parent / "weights" / "resnet18_oct2017.pth"
 
 IMAGENET_MEAN = [0.485, 0.456, 0.406]
 IMAGENET_STD = [0.229, 0.224, 0.225]
@@ -193,7 +193,7 @@ with tab1:
 
     with col_ds_chart:
         test_counts = [250, 250, 250, 250]
-        fig_prop, ax_prop = plt.subplots(figsize=(5.2, 2.8))
+        fig_prop, ax_prop = plt.subplots(figsize=(6.8, 3.4), dpi=150)
         fig_prop.patch.set_facecolor("#FAF8F5")
         ax_prop.set_facecolor("#FFFFFF")
         prop_colors = ["#D95D00", "#F59E0B", "#475569", "#0F766E"]

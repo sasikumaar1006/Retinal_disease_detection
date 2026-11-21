@@ -11,6 +11,12 @@ from torchvision import models, transforms
 from gradcam import GradCAM, make_overlay
 
 CLASS_NAMES = ["CNV", "DME", "DRUSEN", "NORMAL"]
+here = Path(__file__).resolve()
+st.write("App file:", str(here))
+st.write("App parent:", str(here.parent))
+st.write("Weights folder exists here?:", (here.parent / "weights").exists())
+if (here.parent / "weights").exists():
+    st.write("Files in weights/:", os.listdir(here.parent / "weights"))
 WEIGHTS_PATH = Path(__file__).resolve().parent / "weights" / "resnet18_oct2017.pth"
 
 IMAGENET_MEAN = [0.485, 0.456, 0.406]

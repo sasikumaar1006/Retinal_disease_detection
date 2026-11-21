@@ -17,8 +17,14 @@ st.write("App parent:", str(here.parent))
 st.write("Weights folder exists here?:", (here.parent / "weights").exists())
 if (here.parent / "weights").exists():
     st.write("Files in weights/:", os.listdir(here.parent / "weights"))
-WEIGHTS_PATH = Path(__file__).resolve().parent / "weights" / "resnet18_oct2017.pth"
+BASE_DIR = Path(__file__).resolve().parent
 
+candidate_paths = [
+    BASE_DIR / "oct_retinal_app" / "weights" / "resnet18_oct2017.pth",
+    BASE_DIR / "weights" / "resnet18_oct2017.pth",
+]
+
+WEIGHTS_PATH = next((p for p in candidate_paths if p.exists()), candidate_paths[0])
 IMAGENET_MEAN = [0.485, 0.456, 0.406]
 IMAGENET_STD = [0.229, 0.224, 0.225]
 
